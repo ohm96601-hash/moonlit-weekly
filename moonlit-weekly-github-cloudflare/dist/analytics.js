@@ -42,7 +42,7 @@
       before_send: function (event) {
         if (!enabled || !event || !allowed.has(event.event)) return null;
         // Strip automatic page titles, URLs, referrers and other unneeded metadata.
-        const safe = new Set(['distinct_id','$device_id','$session_id','$window_id','$browser','$browser_version','$os','$os_version','$device_type','$screen_height','$screen_width','$viewport_height','$viewport_width','$lib','$lib_version','$insert_id','time','$process_person_profile','app_version','adjustment']);
+        const safe = new Set(['token','distinct_id','$device_id','$session_id','$window_id','$browser','$browser_version','$os','$os_version','$device_type','$screen_height','$screen_width','$viewport_height','$viewport_width','$lib','$lib_version','$insert_id','time','$process_person_profile','app_version','adjustment']);
         const properties = {};
         Object.keys(event.properties || {}).forEach(function (key) {
           if (safe.has(key)) properties[key] = event.properties[key];
